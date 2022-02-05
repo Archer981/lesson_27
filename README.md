@@ -117,7 +117,7 @@ python3 manage.py test <app>
 с помощью команды python3 manage.py migrate
 
 ### Задание fbv_to_cbv
-Перейдите в файл cars/views.py и перепишите view-функцию 'get_car' на class based view 'CarView'
+Перейдите в файл cars/views.py и перепишите view-функцию 'cars' на class based view 'CarView'
 a также отредактируйте соответствующим образом файл cars/urls.py
 
 ### Задание shops
