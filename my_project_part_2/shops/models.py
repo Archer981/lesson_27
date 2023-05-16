@@ -17,4 +17,19 @@ from django.db import models
 
 # TODO здесь следует реализовать модель Store в соответствии со спецификацией
 class Store(models.Model):
-    pass
+    STATUS = [
+        ('new', 'Новый'),
+        ('open', 'Открыт'),
+        ('closed', 'Закрыт'),
+    ]
+
+    slug = models.SlugField(max_length=10)
+    name = models.CharField(max_length=30)
+    address = models.CharField(max_length=120)
+    description = models.CharField(max_length=1000)
+    status = models.CharField(max_length=6, choices=STATUS, default='new')
+    contact_email = models.CharField(max_length=20, null=True, blank=True)
+    opens_at = models.CharField(max_length=20, null=True, blank=True)
+    closes_at = models.CharField(max_length=20, null=True, blank=True)
+    is_cash_only = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)

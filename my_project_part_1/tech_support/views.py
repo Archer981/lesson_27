@@ -5,6 +5,17 @@ from tech_support.models import Statistic
 
 
 def statistics(request):
-    # TODO напишите view-функцию которая возвращает всю статистику
-    #  обращений в тех-поддержку (задание tech_support)
-    pass
+    statistic_list = Statistic.objects.all()
+    result = []
+    for statistic in statistic_list:
+        result.append({
+            'id': statistic.id,
+            'author': statistic.author,
+            'day': statistic.day,
+            'store': statistic.store,
+            'reason': statistic.reason,
+            'status': statistic.status,
+            'timestamp': statistic.timestamp,
+        })
+
+    return JsonResponse(result, safe=False, json_dumps_params={'ensure_ascii': False})
